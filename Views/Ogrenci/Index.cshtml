@@ -1,6 +1,6 @@
 @model IEnumerable<Ogrenci>
 
-<h2>Öğrenci Listesi</h2>
+<h2>Öğrenci Güncelleme</h2>
 <hr>
 <a href="/Ogrenci/Create" class="btn btn-primary">Öğrenci Ekle</a>
 <table class="table table-bordered">
@@ -20,7 +20,7 @@
             <td>@Html.DisplayFor(modelItem => item.OgrenciAd)</td>
             <td>@Html.DisplayFor(modelItem => item.OgrenciSoyad)</td>
             <td>
-                <a href="" class="btn btn-sm btn-primary">Details</a>
+                <a asp-controller="Ogrenci" asp-action="Edit" asp-route-id="@item.OgrenciAd" class="btn btn-sm btn-primary">Edit</a>
                 <a href="" class="btn btn-sm btn-danger">Delete</a>
             </td>
         </tr>
