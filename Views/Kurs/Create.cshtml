@@ -1,0 +1,12 @@
+@model efcoreApp.Data.Kurs
+
+<h2>Kurs Ekle</h2>
+<hr>
+<form asp-controller="Kurs" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="Baslik" class="form-label">Başlık</label>
+        <input asp-for="Baslik" class="form-control">
+    </div>
+    
+    <button type="submit" class="btn btn-outline-dark">Kaydet</button>
+</form>
