@@ -14,5 +14,5 @@ public class Ogrenci
     public string? Eposta { get; set; }
 
     public string? Telefon { get; set; }
-    
+    public int KursId { get; set; }
 }
