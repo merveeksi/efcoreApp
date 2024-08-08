@@ -23,4 +23,6 @@ public class Ogrenci
 
     public string? Telefon { get; set; }
     public int KursId { get; set; }
+
+    public ICollection<KursKayit> KursKayitlari { get; set; } = new List<KursKayit>();
 }

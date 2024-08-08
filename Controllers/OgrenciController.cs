@@ -2,6 +2,7 @@ using efcoreApp.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace efcoreApp.Controllers;
 
@@ -41,7 +42,11 @@ public class OgrenciController : Controller
             return NotFound();
         }
 
-        var ogr = await _context.Ogrenciler.FindAsync(id);
+        var ogr = await _context
+                            .Ogrenciler
+                            .Include(o=> o.KursKayitlari)
+                            .ThenInclude(o => o.Kurs)
+                            .FirstOrDefaultAsync(o => o.OgrenciId == id);
         
         if (ogr == null)
         {
@@ -50,6 +55,7 @@ public class OgrenciController : Controller
 
         return View(ogr);
     }
+    
 
     [HttpPost]
     [ValidateAntiForgeryToken]  //güvenlik önlemi
