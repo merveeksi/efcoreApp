@@ -14,6 +14,5 @@ public class Ogrenci
     public string? Eposta { get; set; }
 
     public string? Telefon { get; set; }
-
-    public List<KursKayit> KursKayitlar{ get; set; }
+    
 }

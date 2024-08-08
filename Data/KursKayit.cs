@@ -13,5 +13,4 @@ public class KursKayit
 
     public DateTime KayitTarihi { get; set; }
     
-    
 }

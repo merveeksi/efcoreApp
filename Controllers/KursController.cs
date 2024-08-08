@@ -6,8 +6,6 @@ using System.Collections.Generic;
 
 namespace efcoreApp.Controllers;
 
-[Route("api/[controller]")] //
-[ApiController]    //
 public class KursController : Controller
 {
     private readonly DataContext _context;
@@ -17,16 +15,16 @@ public class KursController : Controller
         _context = context;
     }
 
+    public async Task<IActionResult> Index()
+    {
+        var kurslar = await _context.Kurslar.ToListAsync();
+        return View(kurslar);
+    }
     public IActionResult Create()
     {
         return View();
     }
-    
-    [HttpGet] ///
-    public async Task<ActionResult<IEnumerable<KursKayit>>> GetKursKayitlar()
-    {
-        return await _context.KursKayitlar.ToListAsync();
-    }
+
 
     [HttpPost]
     public async Task<IActionResult> Create(Kurs model)
@@ -35,19 +33,5 @@ public class KursController : Controller
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
     }
-
-    [HttpDelete("{ogrenciId}/{kursId}")]
-    public async Task<IActionResult> DeleteKursKayit(int ogrenciId, int kursId)
-    {
-        var kursKayit = await _context.KursKayitlar.FindAsync(ogrenciId, kursId);
-        if (kursKayit == null)
-        {
-            return NotFound();
-        }
-
-        _context.KursKayitlar.Remove(kursKayit);
-        await _context.SaveChangesAsync();
-
-        return NoContent();
-    }
+    
 }
