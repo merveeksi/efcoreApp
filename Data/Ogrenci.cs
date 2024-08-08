@@ -11,6 +11,14 @@ public class Ogrenci
     
     public  string? OgrenciSoyad { get; set; }
 
+    public string AdSoyad
+    {
+        get
+        {
+            return this.OgrenciAd + " " + this.OgrenciSoyad;
+        }
+    }
+
     public string? Eposta { get; set; }
 
     public string? Telefon { get; set; }
