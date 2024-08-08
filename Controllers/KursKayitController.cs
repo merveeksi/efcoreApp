@@ -39,7 +39,7 @@ public class KursKayitController : Controller
     public async Task<IActionResult> Create(KursKayit model)
     {
         model.KayitTarihi =DateTime.Now;
-        _context.KursKayitlar.Add(model);
+        _context.KursKayitlari.Add(model);
         await _context.SaveChangesAsync();
         
         return RedirectToAction("Index");

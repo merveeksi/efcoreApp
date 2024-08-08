@@ -11,9 +11,12 @@ public class DataContext: DbContext
     public DbSet<Kurs> Kurslar { get; set; } = null!;
     
     public DbSet<Ogrenci> Ogrenciler { get; set; } = null!;
+
+    public DbSet<KursKayit> KursKayitlari => Set<KursKayit>();
+    public DbSet<Ogretmen> Ogretmenler => Set<Ogretmen>();
     
-    public DbSet<KursKayit> KursKayitlar { get; set; } = null!;
     
+
 }
 
 //Code-first => entty, dbcontext => database (sqlite)
