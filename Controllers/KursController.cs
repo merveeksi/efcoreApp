@@ -43,7 +43,11 @@ public class KursController : Controller
             return NotFound();
         }
 
-        var kurs = await _context.Kurslar.FindAsync(id);
+        var kurs = await _context
+                    .Kurslar
+                    .Include(k => k.KursKayitlari)
+                    .ThenInclude(k => k.Ogrenci)
+                    .FirstOrDefaultAsync(k => k.KursId == id);
         
         if (kurs == null)
         {
