@@ -15,6 +15,8 @@ public class Ogretmen
     
     public string? Telefon { get; set; }
 
+    [DataType(DataType.Date)] //tarih bilgisini sadece tarih olarak alır
+    [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = false)]
     public DateTime BaslamaTarihi { get; set; }
 
     public ICollection<KursKayit> KursKayitlari { get; set; } = new List<KursKayit>();

@@ -25,11 +25,9 @@ public class KursKayitController : Controller
         return View(kursKayitlari);
     }
 
-    private IActionResult View(object kursKayitlari) => throw new NotImplementedException();
-
     public async Task<IActionResult> Create()
     {
-        ViewBag.Ogrenciler = new SelectList(await _context.Ogrenciler.ToListAsync(), "OgrenciId", "AdSoyad");
+        ViewBag.Ogrenciler = new SelectList(await _context.Ogrenciler.ToListAsync(), "OgrenciId", "OgrenciAd");
         ViewBag.Kurslar = new SelectList(await _context.Kurslar.ToListAsync(), "KurslarId", "Baslik");
         
         return View();
