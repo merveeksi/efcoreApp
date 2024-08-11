@@ -1,10 +1,11 @@
-@model efcoreApp.Data.KursViewModel
+@model efcoreApp.Models.KursViewModel
 
 <h2>Kurs Güncelle</h2>
 <hr>
 <div class="row">
     <div class="col-8">
-        <form asp-controller="Kurs" asp-action="Kurs" method="post">
+        <form asp-controller="Kurs" asp-action="Edit" method="post">
+            <div asp-validation-summary="All"></div>
             <input type="hidden" asp-for="KursId">
             <div class="mb-3">
                 <label asp-for="Baslik" class="form-label">Başlık</label>

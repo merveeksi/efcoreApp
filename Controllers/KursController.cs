@@ -31,11 +31,16 @@ public class KursController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]  
-    public async Task<IActionResult> Create(Kurs model)
+    public async Task<IActionResult> Create(KursViewModel model)
     {
-        _context.Kurslar.Add(model);
-        await _context.SaveChangesAsync();
-        return RedirectToAction("Index");
+        if(ModelState.IsValid)
+        {
+            _context.Kurslar.Add(new Kurs() {KursId = model.KursId, Baslik = model.Baslik, OgretmenId = model.OgretmenId});
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+        ViewBag.Ogretmenler = new SelectList(await _context.Ogretmenler.ToListAsync(), "OgretmenId", "AdSoyad");
+        return View(model);
     }
     
     [HttpGet]
@@ -66,6 +71,7 @@ public class KursController : Controller
         ViewBag.Ogretmenler = new SelectList(await _context.Ogretmenler.ToListAsync(), "OgretmenId", "AdSoyad");
         return View(kurs);
     }
+    
     [HttpPost]
     [ValidateAntiForgeryToken]  //güvenlik önlemi
     public async Task<IActionResult> Edit(int id, KursViewModel model)
@@ -82,13 +88,14 @@ public class KursController : Controller
             }
             catch (DbUpdateException)
             {
-                if (!_context.Ogrenciler.Any(o => o.KursId == model.KursId)) //herhangi bir kayıt yok mu
+                if (!_context.Kurslar.Any(o => o.KursId == model.KursId)) //herhangi bir kayıt yok mu
                     return NotFound();
                 else
                     throw; //kaldığın yerden devam et
             }
             return RedirectToAction("Index");
         }
+        ViewBag.Ogretmenler = new SelectList(await _context.Ogretmenler.ToListAsync(), "OgretmenId", "AdSoyad");
         return View(model);
     }
     [HttpGet]

@@ -24,11 +24,11 @@ public class KursKayitController : Controller
             .ToListAsync(); 
         return View(kursKayitlari);
     }
-
+    [HttpGet]
     public async Task<IActionResult> Create()
     {
         ViewBag.Ogrenciler = new SelectList(await _context.Ogrenciler.ToListAsync(), "OgrenciId", "OgrenciAd");
-        ViewBag.Kurslar = new SelectList(await _context.Kurslar.ToListAsync(), "KurslarId", "Baslik");
+        ViewBag.Kurslar = new SelectList(await _context.Kurslar.ToListAsync(), "KursId", "Baslik");
         
         return View();
     }
