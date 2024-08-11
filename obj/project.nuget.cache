@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uS4D5fijZsc=",
+  "dgSpecHash": "AG+bJQRmVvL3mlDjDtrESlnY9/IxyecFG+70C1QqPYnxKs4MH3wAkGWTRbYQ4OHyWo4f9pJ2oPzr7nvpKv/jDw==",
   "success": true,
   "projectFilePath": "/Users/pc/Desktop/efcoreApp/efcoreApp.csproj",
   "expectedPackageFiles": [
@@ -31,7 +31,10 @@
     "/Users/pc/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/Users/pc/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
     "/Users/pc/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
-    "/Users/pc/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512"
+    "/Users/pc/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
+    "/Users/pc/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "/Users/pc/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "/Users/pc/.nuget/packages/microsoft.netcore.app.host.osx-x64/7.0.20/microsoft.netcore.app.host.osx-x64.7.0.20.nupkg.sha512"
   ],
   "logs": []
 }
